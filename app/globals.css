@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --font-sans: var(--font-vazirmatn), sans-serif;
@@ -13,4 +13,38 @@
 /* حل مشکل زیرخط و رنگ پیش‌فرض لینک‌های ناوبری */
 header nav ul li a {
   text-decoration: none !important;
+}
+
+/* Animated background used by contact page */
+.animated-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background: linear-gradient(135deg, #e0ffe0, #c0ffc0, #e0ffe0);
+  background-size: 200% 200%;
+  animation: moveBackground 20s ease infinite alternate;
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero-contact-bg {
+  background-size: cover;
+  background-position: center;
+}
+
+.footer-background {
+  background-color: #28a745;
 }

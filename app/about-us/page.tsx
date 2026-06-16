@@ -1,82 +1,146 @@
-import AboutImage from "./AboutImage"; // ایمپورت کامپوننت عکس
-import { Metadata } from "next";
+import AboutCanvas from './AboutCanvas'
+import AboutImage from './AboutImage'
+import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: "درباره من | فاطمه درویشی - متخصص آرایش دائم و زیبایی",
-  description: "با فاطمه درویشی، متخصص آرایش دائم و زیبایی در مشهد آشنا شوید. داستان من، تخصص‌ها و تعهد من به خلق زیبایی طبیعی و ماندگار برای شما.",
-  keywords: ["فاطمه درویشی", "متخصص آرایش دائم مشهد", "میکروبلیدینگ فاطمه درویشی", "درباره سالن زیبایی"],
-};
+  title: 'درباره من | فاطمه درویشی - متخصص آرایش دائم در مشهد',
+  description:
+    'با فاطمه درویشی، متخصص آرایش دائم و زیبایی در مشهد آشنا شوید. داستان کاری، تجربه و تخصص من برای ایجاد نتایج طبیعی و ماندگار.',
+  keywords: [
+    'درباره من',
+    'فاطمه درویشی',
+    'آرایش دائم مشهد',
+    'فیبروز ابرو',
+    'میکروبلیدینگ',
+  ],
+  openGraph: {
+    title: 'درباره فاطمه درویشی | متخصص آرایش دائم',
+    description:
+      'آشنایی با تجربه، روش کاری و گواهینامه‌های فاطمه درویشی در حوزه آرایش دائم.',
+    type: 'website',
+    url: 'https://fatemedarvishi.ir/about-us',
+    images: [
+      {
+        url: 'https://fatemedarvishi.ir/optimized/me.webp',
+        alt: 'فاطمه درویشی متخصص آرایش دائم',
+      },
+    ],
+  },
+}
 
 export default function AboutUsPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "فاطمه درویشی",
-    "url": "https://fatemedarvishi.ir/about-us",
-    "image": "/me.jpeg",
-    "jobTitle": "متخصص آرایش دائم",
-    "worksFor": {
-      "@type": "BeautySalon",
-      "name": "مرکز زیبایی فاطمه درویشی"
-    },
-    "sameAs": [
-      "https://www.instagram.com/fatemedarvish.ir",
-      "https://t.me/fatemehdarvishpour2020"
-    ]
-  };
-
   return (
-    <div className="w-full bg-gray-50/50 min-h-screen py-16 md:py-24 font-sans" dir="rtl">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      
-      <div className="container mx-auto px-4 max-w-4xl">
-        {/* هدر بخش درباره من */}
-        <div className="text-center mb-16 animate-fade-in">
-          <h1 className="text-3xl md:text-4xl font-black text-gray-950 mb-4 tracking-tight">
-            داستان من و خلق زیبایی ماندگار
-          </h1>
-          <div className="w-20 h-1 bg-emerald-600 mx-auto rounded-full"></div>
-        </div>
+    <div
+      className='w-full bg-gray-50 min-h-screen py-12 md:py-20 font-sans'
+      dir='rtl'
+    >
+      <AboutCanvas />
 
-        {/* بخش اصلی محتوا و تصویر */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center bg-white p-6 md:p-10 rounded-2xl shadow-xs border border-gray-150">
-          <div className="md:col-span-4 flex justify-center">
-            <AboutImage /> {/* استفاده از کامپوننت جداگانه */}
-          </div>
+      <div className='container mx-auto px-4'>
+        <div className='max-w-5xl mx-auto bg-white/80 backdrop-blur-md rounded-2xl shadow-xl overflow-hidden'>
+          <div className='flex flex-col lg:flex-row'>
+            {/* ستون تصویر */}
+            <div className='w-full lg:w-1/3'>
+              <AboutImage />
+            </div>
 
-          <div className="md:col-span-8 text-justify leading-loose text-gray-800 text-base md:text-lg space-y-4">
-            <p className="font-bold text-gray-950 text-xl">سلام، من فاطمه درویشی هستم.</p>
-            <p>
-              علاقه من به دنیای زیبایی و هنر مینیاتوری هاشور، مسیر حرفه‌ای مرا به سمت تخصص در آرایش دائم (Permanent Makeup) هدایت کرد. در طول سال‌های فعالیتم، همیشه بر این باور بوده‌ام که آرایش دائم نباید حالت مصنوعی به چهره ببخشد؛ بلکه باید ابزاری ظریف برای بازگرداندن نقایص طبیعی، قرینه‌سازی بی‌نقص و برجسته کردن اصالت چهره شما باشد.
-            </p>
-            <p>
-              استفاده از به‌روزترین دستگاه‌های دیجیتال، رنگ‌های گیاهی و ارگانیک کاملاً بدون سرب و رعایت بالاترین استانداردهای بهداشتی پزشکی، اصول تغییرناپذیر مرکز زیبایی من است. تعهد من، ارائه کیفیتی است که در آینه به آن افتخار کنید.
-            </p>
-          </div>
-        </div>
+            {/* ستون محتوا */}
+            <div className='w-full lg:w-2/3 p-8 md:p-12 content-section'>
+              <h1 className='text-3xl md:text-4xl font-extrabold text-gray-900 mb-4'>
+                درباره فاطمه درویشی
+              </h1>
+              <p className='text-lg font-medium text-emerald-700 mb-8'>
+                متخصص زیبایی و آرایش دائم
+              </p>
 
-        {/* ارزش‌ها و ویژگی‌های کلیدی */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12">
-          <div className="bg-white p-6 rounded-xl border border-gray-150 text-center shadow-xs">
-            <div className="text-3xl mb-3">✨</div>
-            <h3 className="font-bold text-gray-950 text-base mb-2">ظرافت و اصالت نچرال</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">طراحی تار به تار و مویی متناسب با خواب طبیعی ابروها بدون ایجاد کادرهای ضخیم سنتی.</p>
-          </div>
-          <div className="bg-white p-6 rounded-xl border border-gray-150 text-center shadow-xs">
-            <div className="text-3xl mb-3">🛡️</div>
-            <h3 className="font-bold text-gray-950 text-base mb-2">ایمنی و سلامت متریال</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">استفاده اختصاصی از کارتریج‌های استریل یک‌بار مصرف و رنگ‌های تایید شده ارگانیک.</p>
-          </div>
-          <div className="bg-white p-6 rounded-xl border border-gray-150 text-center shadow-xs">
-            <div className="text-3xl mb-3">🎓</div>
-            <h3 className="font-bold text-gray-950 text-base mb-2">تخصص به‌روز</h3>
-            <p className="text-gray-600 text-sm leading-relaxed">تسلط کامل بر مدرن‌ترین تکنیک‌های میکروپیگمنتیشن، فیبروز، شیدینگ لب و ریموو تاتو.</p>
+              <h2 className='text-2xl font-bold text-gray-800 mt-8 mb-4 border-r-4 border-emerald-700 pr-4'>
+                داستان من
+              </h2>
+              <p className='text-gray-700'>
+                سلام، من فاطمه درویشی هستم. از کودکی به دنیای هنر و زیبایی
+                علاقه‌مند بودم و همیشه باور داشتم که زیبایی واقعی، در هماهنگی و
+                طبیعی بودن اجزای چهره نهفته است. این علاقه من را به سمت دنیای
+                تخصصی آرایش دائم هدایت کرد. من سال‌ها با عشق و پشتکار در این
+                زمینه مطالعه و تمرین کرده‌ام تا بتوانم با استفاده از جدیدترین
+                تکنیک‌ها و بهترین متریال، به شما کمک کنم تا زیبایی طبیعی خود را
+                به شکلی ماندگار به نمایش بگذارید.
+              </p>
+
+              <h2 className='text-2xl font-bold text-gray-800 mt-10 mb-4 border-r-4 border-emerald-700 pr-4'>
+                تخصص و فلسفه کاری من
+              </h2>
+              <p className='text-gray-700'>
+                تخصص اصلی من در خدمات میکروپیگمنتیشن و میکروبلیدینگ ابرو، خط چشم
+                و کانتور لب است. فلسفه کاری من بر سه اصل استوار است:{' '}
+                <strong>دقت، هنر و سلامت</strong>. من معتقدم هر چهره‌ای منحصر به
+                فرد است و طراحی باید کاملاً اختصاصی و متناسب با اجزای صورت شما
+                انجام شود. استفاده از رنگ‌های ارگانیک و تجهیزات استریل، اولویت
+                اصلی من برای تضمین سلامت شماست.
+              </p>
+
+              <div className='mt-12 pt-8 border-t border-gray-200'>
+                <h2 className='text-2xl font-bold text-gray-800 mb-6 text-center'>
+                  گواهینامه‌ها و مدارک
+                </h2>
+                <div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
+                  <div className='text-center'>
+                    <img
+                      src='/optimized/my.webp'
+                      alt='عکس مدرک فنی حرفه‌ای'
+                      className='rounded-lg shadow-md w-full mb-3'
+                    />
+                    <p className='text-sm text-gray-600 font-medium'>
+                      مدرک معتبر فنی و حرفه‌ای
+                    </p>
+                  </div>
+                  <div className='text-center'>
+                    <img
+                      src='/optimized/degree.webp'
+                      alt='عکس مدرک بین‌المللی'
+                      className='rounded-lg shadow-md w-full mb-3'
+                    />
+                    <p className='text-sm text-gray-600 font-medium'>
+                      گواهینامه بین‌المللی آرایش دائم
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className='mt-12 pt-8 border-t border-gray-200'>
+                <h3 className='text-xl font-bold text-gray-800 mb-4 text-center'>
+                  راه‌های ارتباطی من
+                </h3>
+                <div className='text-center text-gray-700 mb-6'>
+                  <p className='mb-2'>
+                    📍 مشهد، بزرگراه پیامبراعظم، پیامبر اعظم ۱۰۱، توس ۱۶۰
+                  </p>
+                  <a href='tel:09391813879' className='hover:text-emerald-700'>
+                    📞 09391813879
+                  </a>
+                </div>
+                <div className='flex justify-center items-center gap-6'>
+                  <a
+                    href='https://t.me/fatemehdarvishpour2020'
+                    target='_blank'
+                    rel='noreferrer'
+                    className='text-gray-500 hover:text-blue-500 transition-colors duration-300 text-3xl'
+                  >
+                    <i className='fab fa-telegram'></i>
+                  </a>
+                  <a
+                    href='https://www.instagram.com/fatemedarvish.ir?igsh=Z3BidGZyc24zNW5r'
+                    target='_blank'
+                    rel='noreferrer'
+                    className='text-gray-500 hover:text-pink-500 transition-colors duration-300 text-3xl'
+                  >
+                    <i className='fab fa-instagram'></i>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  );
+  )
 }

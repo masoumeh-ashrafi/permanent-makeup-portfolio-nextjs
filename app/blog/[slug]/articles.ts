@@ -597,7 +597,7 @@ export const articlesData: Record<string, Article> = {
     title: 'میکروشیدینگ ابرو: تلفیق هنر دستی و دیجیتال برای ابروهای کم‌پشت',
     date: '۲۸ مهر ۱۴۰۳',
     author: 'م. اشرفی',
-    img: '/optimized/images/blog/post17.webp',
+    img: '/optimized/abroo-1001.webp',
     sections: [
       {
         type: 'p',

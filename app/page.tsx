@@ -412,8 +412,8 @@ export default function HomePage() {
               نمونه‌کارهای آرایش دائم
             </h2>
             <p className='text-gray-600 mt-4 max-w-2xl mx-auto leading-8'>
-              قبل از تصمیم‌گیری، نمونه‌کارهای واقعی را بررسی کنید. در مرحله بعد
-              برای این بخش یک صفحه مستقل نمونه‌کار هم باید ساخته شود.
+              قبل از تصمیم‌گیری، چند نمونه‌کار منتخب را در صفحه اصلی بررسی کنید.
+              برای مشاهده گالری کامل‌تر، وارد صفحه مستقل نمونه‌کارها شوید.
             </p>
           </div>
 
@@ -438,12 +438,21 @@ export default function HomePage() {
           </div>
 
           <div className='text-center mt-10'>
-            <a
-              href='/services'
-              className='inline-flex items-center justify-center rounded-full bg-emerald-700 px-8 py-3 text-white font-bold no-underline transition duration-300 hover:bg-emerald-800'
-            >
-              بررسی خدمات قبل از رزرو
-            </a>
+            <div className='flex flex-col sm:flex-row gap-4 justify-center'>
+              <a
+                href='/portfolio'
+                className='inline-flex items-center justify-center rounded-full bg-emerald-700 px-8 py-3 text-white font-bold no-underline transition duration-300 hover:bg-emerald-800'
+              >
+                مشاهده همه نمونه‌کارها
+              </a>
+
+              <a
+                href='/services'
+                className='inline-flex items-center justify-center rounded-full border border-emerald-700 px-8 py-3 text-emerald-700 font-bold no-underline transition duration-300 hover:bg-emerald-50'
+              >
+                بررسی خدمات قبل از رزرو
+              </a>
+            </div>
           </div>
         </div>
       </section>
